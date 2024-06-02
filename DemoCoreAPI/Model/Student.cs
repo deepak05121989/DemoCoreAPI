@@ -1,10 +1,16 @@
-﻿namespace DemoCoreAPI.Model
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DemoCoreAPI.Model
 {
     public class Student
     {
-        public int RolleNO { get; set; }
-       public string Name { get; set; }
+        [Key]
+        public int Id { get; set; }
+        [Required]
+        public string Name { get; set; }
+        [Required]
         public string Address { get; set; }
+        [Required]
         public long Mobile { get; set; }
     }
 }

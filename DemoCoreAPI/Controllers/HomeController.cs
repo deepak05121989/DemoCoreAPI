@@ -24,27 +24,32 @@ namespace DemoCoreAPI.Controllers
 
         // GET api/<HomeController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Student Get(int id)
         {
-            return "value";
+            return _studentService.GetStudentById(id);
         }
 
         // POST api/<HomeController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post(Student student)
         {
+            _studentService.SaveStudent(student);
+
+
         }
 
         // PUT api/<HomeController>/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public void Put(int id, Student student)
         {
+            _studentService.UpdateStudent(id,student);
         }
 
         // DELETE api/<HomeController>/5
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _studentService.DeleteStudent(id);
         }
     }
 }
